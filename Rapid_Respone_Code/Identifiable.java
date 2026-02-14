@@ -1,3 +1,3 @@
 public interface Identifiable {
-    public int getID();
+    public String getID();
 }
