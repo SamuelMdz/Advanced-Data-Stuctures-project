@@ -1,29 +1,32 @@
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Incident implements Comparable<Incident>, Cloneable {
 
-    private int incidentId;
+    public enum SeverityLevel {CRITICAL, HIGH, MEDIUM, LOW};
+    private final String incidentId;
     private String incidentType;
-    private int severityLevel;
+    private SeverityLevel severityLevel;
     private String location;
-    private Date timeReported;
+    private final LocalDateTime timeReported;
     private Caller caller;
+    private static int incidentCounter = 0;
 
-    public Incident(int incidentId, String incidentType, int severityLevel,
-                    String location, Date timeReported, Caller caller) {
-        this.incidentId = incidentId;
+    public Incident(String incidentType, SeverityLevel severityLevel,
+                    String location, Caller caller) {
+        this.incidentId = String.format("INC%04d", ++incidentCounter);    //Returns an auto-generated ID of type String using the incremented static incidentCounter variable
         this.incidentType = incidentType;
         this.severityLevel = severityLevel;
         this.location = location;
-        this.timeReported = timeReported;
         this.caller = caller;
+        this.timeReported = LocalDateTime.now();
     }
 
-    public int getId() {
+    public String getId() {
         return incidentId;
     }
 
-    public int getSeverityLevel() {
+    public SeverityLevel getSeverityLevel() {
         return severityLevel;
     }
 
@@ -39,37 +42,44 @@ public class Incident implements Comparable<Incident>, Cloneable {
         return caller;
     }
 
-    public void setSeverityLevel(int severity) {
+    public void setSeverityLevel(SeverityLevel severity) {
         this.severityLevel = severity;
     }
 
-    @Override
-    public int compareTo(Incident other) {
-        return Integer.compare(this.severityLevel, other.severityLevel);
+    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");   //Formats date and time to user-friendly formate for readability
+    String formattedTimeReported() {
+        return timeReported.format(formatter);
+    }
+
+    public LocalDateTime getTimeReported() {
+        return timeReported;
+    }
+
+    public static int getIncidentCounter() {
+        return incidentCounter;
     }
 
     @Override
-    public Incident clone() {
-        try {
-            Incident cloned = (Incident) super.clone();
-            // Deep copy mutable fields
-            cloned.timeReported = (Date) this.timeReported.clone();
-            cloned.caller = this.caller.clone();
-            return cloned;
-        } catch (CloneNotSupportedException e) {
-            throw new RuntimeException("Clone not supported", e);
-        }
+    public int compareTo(Incident other) {  //Makes sort use the severity level of each incident to determine their priority
+        int s = Integer.compare(this.severityLevel.ordinal(), other.severityLevel.ordinal());
+        if (s != 0) return s;   //If the severity levels are not even, then return the integer to Sort method
+        int result = this.timeReported.compareTo(other.timeReported);   //If the everity levels are the same, return whichever Incident was made first
+        return result;  //Return result of timeComparison result
+    }
+
+    @Override
+    public Incident clone() throws CloneNotSupportedException{  //Clones the incident in case modifications need to be made, but keeps original timeReported
+        Incident copy = (Incident) super.clone();
+        return copy;
     }
 
     @Override
     public String toString() {
-        return "Incident{" +
-                "incidentId=" + incidentId +
-                ", incidentType='" + incidentType + '\'' +
-                ", severityLevel=" + severityLevel +
-                ", location='" + location + '\'' +
-                ", timeReported=" + timeReported +
-                ", caller=" + caller +
-                '}';
+        return "Incident Id: '" + incidentId +
+                "; Type of Incident: '" + incidentType + '\'' +
+                "; Severity of Incident: " + severityLevel +
+                "; Location: '" + location + '\'' +
+                "; Time Reported: " + formattedTimeReported() +
+                "; Caller: " + caller;
     }
 }

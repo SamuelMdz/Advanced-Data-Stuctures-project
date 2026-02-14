@@ -1,12 +1,12 @@
 public abstract class Responder {
-    private final String responderId;
-    private final String name;
-    private final String location;
-    private final String availabilityStatus;
+    private String responderId;
+    private String responderType;
+    private String location;
+    private boolean availabilityStatus;
 
-    public Responder(String responderId, String name, String location, String availabilityStatus) {
+    public Responder(String responderId, String responderType, String location, boolean availabilityStatus) {
         this.responderId = responderId;
-        this.name = name;
+        this.responderType = responderType;
         this.location = location;
         this.availabilityStatus = availabilityStatus;
     }
@@ -15,15 +15,25 @@ public abstract class Responder {
         return responderId;
     }
 
-    public String getName() {
-        return name;
+    public String getResponderType() {
+        return responderType;
     }
 
     public String getLocation() {
         return location;
     }
 
-    public String getAvailabilityStatus() {
+    public boolean getAvailabilityStatus() {
         return availabilityStatus;
     }
+
+    public void setAvailabilityStatus(boolean availabilityStatus) {
+        this.availabilityStatus = availabilityStatus;
+    }
+
+    public abstract void respondToCall(String callerLocation);
+
+    public abstract double calculateResponseTime();
+
+    public abstract String getResponseTime();
 }

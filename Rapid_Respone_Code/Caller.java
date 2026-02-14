@@ -1,21 +1,49 @@
 public class Caller
-        implements Identifiable, Cloneable{
-    private String callerID;
-    private String callerName;
+        implements Identifiable{
+    private final String callerID;
+    private final String callerName;
     private String phoneNumber;
     private String callerLocation;
+    private static int numOfCallers;
 
-    public Caller(String callerID, String callerName, String phoneNumber, String location){
-        this.callerID = callerID;
+    public Caller(String callerName, String phoneNumber, String callerLocation){
+        this.callerID = String.format("C%04d", ++numOfCallers);
         this.callerName = callerName;
         this.phoneNumber = phoneNumber;
         this.callerLocation = callerLocation;
     }
 
-    public Caller(){
-        this.callerID = "";
-        this.callerName = "";
-        this.phoneNumber = "";
-        this.callerLocation = "";
+    public String getCallerName(){
+        return callerName;
+    }
+
+    public String getPhoneNumber(){
+        return phoneNumber;
+    }
+
+    public String getCallerLocation(){
+        return callerLocation;
+    }
+
+    public void updatePhoneNumber(String newPhoneNumber){
+        this.phoneNumber = newPhoneNumber;
+    }
+
+    public void updateCallerLocation(String newLocation){
+        this.callerLocation = newLocation;
+    }
+
+    public int getNumOfCallers(){
+        return numOfCallers;
+    }
+
+    @Override
+    public String getID(){
+        return callerID;
+    }
+
+    @Override
+    public String toString(){
+        return "Caller Name: " + callerID + "; Name: " + "; Phone Number: " + phoneNumber + "; Last Reported Location: " + callerLocation;
     }
 }
