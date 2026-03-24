@@ -1,4 +1,5 @@
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Tester {
@@ -35,7 +36,7 @@ public class Tester {
 
         // --- Simulate each incident ---
         System.out.println("=== Fire Incident Arrival Order ===");
-        List<ArrivalRecord> fireArrival = dispatch.getArrivalOrder(fireIncident);
+        ArrayList<ArrivalRecord> fireArrival = dispatch.getArrivalOrder(fireIncident);
         fireArrival.forEach(a -> System.out.println(
                 a.getResponder().getResponderId() + " (" + a.getResponder().getClass().getSimpleName() + ") -> " +
                         a.getArrivalTime().format(formatter)
@@ -50,7 +51,7 @@ public class Tester {
         e2.setAvailabilityStatus(true);
 
         System.out.println("\n=== Crime Incident Arrival Order ===");
-        List<ArrivalRecord> crimeArrival = dispatch.getArrivalOrder(crimeIncident);
+        ArrayList<ArrivalRecord> crimeArrival = dispatch.getArrivalOrder(crimeIncident);
         crimeArrival.forEach(a -> System.out.println(
                 a.getResponder().getResponderId() + " (" + a.getResponder().getClass().getSimpleName() + ") -> " +
                         a.getArrivalTime().format(formatter)

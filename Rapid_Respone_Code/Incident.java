@@ -47,7 +47,7 @@ public class Incident implements Comparable<Incident>, Cloneable {
     }
 
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");   //Formats date and time to user-friendly formate for readability
-    String formattedTimeReported() {
+    public String formattedTimeReported() {
         return timeReported.format(formatter);
     }
 

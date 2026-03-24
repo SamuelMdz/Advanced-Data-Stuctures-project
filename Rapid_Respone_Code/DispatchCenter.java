@@ -1,15 +1,17 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class DispatchCenter {
 
     private List<Responder> responders;
-    private List<Incident> activeIncidents;
+    private Queue<Incident> incidentQueue;
 
     public DispatchCenter() {
         this.responders = new ArrayList<>();
-        this.activeIncidents = new ArrayList<>();
+        this.incidentQueue = new LinkedList<>();
     }
 
     // Add a responder to the system
@@ -19,12 +21,27 @@ public class DispatchCenter {
 
     // Add an incident to the system
     public void addIncident(Incident incident) {
-        activeIncidents.add(incident);
+        incidentQueue.offer(incident);  //Use offer instead of "add" for queue implementation
+    }
+
+    //Returns and removes next incident to show that it was resolved
+    public Incident processNextIncident(){
+        return incidentQueue.poll();
+    }
+
+    //See next incident in queue using peek method for linkedList
+    public Incident peekNextIncident(){
+        return incidentQueue.peek();
+    }
+
+    //Getter for incidentQueue
+    public Queue<Incident> getIncidentQueue(){
+        return incidentQueue;
     }
 
     // Assign available responders for a given incident
-    public List<Responder> assignResponders(Incident incident) {
-        List<Responder> assigned = new ArrayList<>();
+    public ArrayList<Responder> assignResponders(Incident incident) {
+        ArrayList<Responder> assigned = new ArrayList<>();
         for (Responder r : responders) {
             if (r.getAvailabilityStatus()) {
                 // Update responder to be en route
@@ -39,12 +56,12 @@ public class DispatchCenter {
     }
 
     // Get responders ordered by arrival time for a given incident
-    public List<ArrivalRecord> getArrivalOrder(Incident incident) {
-        List<ArrivalRecord> arrivalOrder = new ArrayList<>();
+    public ArrayList<ArrivalRecord> getArrivalOrder(Incident incident) {
+        ArrayList<ArrivalRecord> arrivalOrder = new ArrayList<>();
         LocalDateTime now = LocalDateTime.now();
 
         // Assign responders for this incident
-        List<Responder> assigned = assignResponders(incident);
+        ArrayList<Responder> assigned = assignResponders(incident);
 
         for (Responder r : assigned) {
             // Calculate arrival time based on responder's distance
@@ -54,9 +71,6 @@ public class DispatchCenter {
             // Create record
             arrivalOrder.add(new ArrivalRecord(r, incident, arrivalTime));
         }
-
-        // Sort by arrival time (ArrivalRecord implements Comparable)
-        arrivalOrder.sort(null);
 
         return arrivalOrder;
     }
