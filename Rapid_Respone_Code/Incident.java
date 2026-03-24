@@ -46,7 +46,7 @@ public class Incident implements Comparable<Incident>, Cloneable {
         this.severityLevel = severity;
     }
 
-    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");   //Formats date and time to user-friendly formate for readability
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");   //Formats date and time to user-friendly formate for readability
     public String formattedTimeReported() {
         return timeReported.format(formatter);
     }
@@ -62,8 +62,8 @@ public class Incident implements Comparable<Incident>, Cloneable {
     @Override
     public int compareTo(Incident other) {  //Makes sort use the severity level of each incident to determine their priority
         int s = Integer.compare(this.severityLevel.ordinal(), other.severityLevel.ordinal());
-        if (s != 0) return s;   //If the severity levels are not even, then return the integer to Sort method
-        int result = this.timeReported.compareTo(other.timeReported);   //If the everity levels are the same, return whichever Incident was made first
+        if (s != 0) return s;   //If the severity levels are not equal, then return the integer to Sort method
+        int result = this.timeReported.compareTo(other.timeReported);   //If the severity levels are the same, return whichever Incident was made first
         return result;  //Return result of timeComparison result
     }
 
@@ -73,12 +73,13 @@ public class Incident implements Comparable<Incident>, Cloneable {
         return copy;
     }
 
+    //toString Method for readability
     @Override
     public String toString() {
-        return "Incident Id: '" + incidentId +
-                "; Type of Incident: '" + incidentType + '\'' +
-                "; Severity of Incident: " + severityLevel +
-                "; Location: '" + location + '\'' +
+        return "Incident ID: " + incidentId +
+                "; Type: " + incidentType +
+                "; Severity: " + severityLevel +
+                "; Location: " + location +
                 "; Time Reported: " + formattedTimeReported() +
                 "; Caller: " + caller;
     }
