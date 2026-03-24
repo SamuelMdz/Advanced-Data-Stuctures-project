@@ -16,8 +16,8 @@ public class ArrivalRecord implements Comparable<ArrivalRecord> {
         return arrivalTime;
     }
 
-    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");   //Formats date and time to user-friendly formate for readability
-    String formattedTimeReported() {
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");   //Formats date and time to user-friendly formate for readability
+    public String formattedTimeReported() {
         return arrivalTime.format(formatter);
     }
 
@@ -27,6 +27,11 @@ public class ArrivalRecord implements Comparable<ArrivalRecord> {
 
     public Incident getIncident() {
         return incident;
+    }
+
+    //Helper method in case of alternative manual search implementation
+    public String getIncidentId(){
+        return incident.getId();
     }
 
     @Override
@@ -39,7 +44,7 @@ public class ArrivalRecord implements Comparable<ArrivalRecord> {
         return "ArrivalRecord{" +
                 "responder=" + responder +
                 ", incident=" + incident.getId() +
-                ", arrivalTime=" + arrivalTime +
+                ", arrivalTime=" + formattedTimeReported() +
                 '}';
     }
 }
