@@ -12,6 +12,16 @@ public class Incident implements Comparable<Incident>, Cloneable {
     private Caller caller;
     private static int incidentCounter = 0;
 
+    //No-arg constructor
+    public Incident() {
+        this.incidentId = String.format("INC%04d", ++incidentCounter);
+        this.incidentType = "";
+        this.severityLevel = SeverityLevel.CRITICAL;
+        this.location = "";
+        this.timeReported = LocalDateTime.now();
+        this.caller = new Caller();
+    }
+
     public Incident(String incidentType, SeverityLevel severityLevel,
                     String location, Caller caller) {
         this.incidentId = String.format("INC%04d", ++incidentCounter);    //Returns an auto-generated ID of type String using the incremented static incidentCounter variable
@@ -47,7 +57,7 @@ public class Incident implements Comparable<Incident>, Cloneable {
     }
 
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");   //Formats date and time to user-friendly formate for readability
-    String formattedTimeReported() {
+    public String formattedTimeReported() {
         return timeReported.format(formatter);
     }
 
@@ -57,6 +67,13 @@ public class Incident implements Comparable<Incident>, Cloneable {
 
     public static int getIncidentCounter() {
         return incidentCounter;
+    }
+
+    public boolean equals(Incident other){
+        if (this.incidentId.compareTo(other.incidentId) == 0){
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -70,6 +87,7 @@ public class Incident implements Comparable<Incident>, Cloneable {
     @Override
     public Incident clone() throws CloneNotSupportedException{  //Clones the incident in case modifications need to be made, but keeps original timeReported
         Incident copy = (Incident) super.clone();
+        copy.caller = caller.clone();
         return copy;
     }
 

@@ -6,6 +6,14 @@ public class ArrivalRecord implements Comparable<ArrivalRecord> {
     private Incident incident;
     private LocalDateTime arrivalTime;
 
+    //No-arg Constructor
+    public ArrivalRecord(){
+        this.responder = null;
+        this.incident = null;
+        this.arrivalTime = LocalDateTime.now();
+    }
+
+    //Constructor
     public ArrivalRecord(Responder responder, Incident incident, LocalDateTime arrivalTime) {
         this.responder = responder;
         this.incident = incident;

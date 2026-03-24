@@ -1,10 +1,18 @@
 public class Caller
-        implements Identifiable{
+        implements Identifiable, Cloneable{
     private final String callerID;
     private final String callerName;
     private String phoneNumber;
     private String callerLocation;
     private static int numOfCallers;
+
+    public Caller(){
+        this.callerID = String.format("C%04d", ++numOfCallers);
+        this.callerName = "";
+        this.phoneNumber = "";
+        this.callerLocation= "";
+        numOfCallers++;
+    }
 
     public Caller(String callerName, String phoneNumber, String callerLocation){
         this.callerID = String.format("C%04d", ++numOfCallers);
@@ -33,7 +41,7 @@ public class Caller
         this.callerLocation = newLocation;
     }
 
-    public int getNumOfCallers(){
+    public static int getNumOfCallers(){
         return numOfCallers;
     }
 
@@ -43,7 +51,16 @@ public class Caller
     }
 
     @Override
-    public String toString(){
-        return "Caller Name: " + callerID + "; Name: " + "; Phone Number: " + phoneNumber + "; Last Reported Location: " + callerLocation;
+    public Caller clone() throws CloneNotSupportedException{  //Clones the incident in case modifications need to be made, but keeps original timeReported
+        Caller copy = (Caller) super.clone();
+        return copy;
+    }
+
+    @Override
+    public String toString() {
+        return "Caller ID: " + callerID +
+                "; Name: " + callerName +
+                "; Phone Number: " + phoneNumber +
+                "; Last Reported Location: " + callerLocation;
     }
 }

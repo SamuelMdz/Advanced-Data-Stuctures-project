@@ -3,6 +3,14 @@ public class EMSResponder extends Responder implements ResponseTime{
     private String currentIncidentLocation;
     private int distance;
 
+    //No-arg Constructor
+    public EMSResponder(){
+        super();
+        this.certificationLevel = "";
+        this.currentIncidentLocation = "";
+        this.distance = 0;
+    }
+
     public EMSResponder(String EMSID, String responderType, String location, boolean availabilityStatus, String certificationLevel, int distance) {
             super(EMSID, "EMS Responder", location, availabilityStatus);
             this.certificationLevel = certificationLevel;

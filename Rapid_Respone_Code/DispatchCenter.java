@@ -3,10 +3,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DispatchCenter {
-
     private List<Responder> responders;
     private List<Incident> activeIncidents;
 
+    //Constructor
     public DispatchCenter() {
         this.responders = new ArrayList<>();
         this.activeIncidents = new ArrayList<>();

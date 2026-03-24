@@ -4,6 +4,13 @@ public abstract class Responder {
     private String location;
     private boolean availabilityStatus;
 
+    public Responder() {
+        this.responderId = "";
+        this.responderType = "";
+        this.location = "";
+        this.availabilityStatus = true;
+    }
+
     public Responder(String responderId, String responderType, String location, boolean availabilityStatus) {
         this.responderId = responderId;
         this.responderType = responderType;

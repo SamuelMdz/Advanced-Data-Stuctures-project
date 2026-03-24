@@ -4,6 +4,12 @@ public class FireResponder extends Responder implements ResponseTime {
     private String specialization;
     private int distance;   //Some arbitrary distance value to be defined later, not sure how to implement yet
 
+    //No-arg Constructor
+    public FireResponder(){
+        super();
+        this.specialization = "";
+    }
+
     // Constructor
     public FireResponder(String responderID, String responderType, String location, boolean availabilityStatus, String specialization, int distance) {
         super(responderID, "Fire Responder", location, availabilityStatus);

@@ -5,55 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6e4c039-ca41-45d3-914b-9772895218fe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../RapidResponse_UML_Diagram.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Caller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DispatchCenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EMSResponder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FireResponder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Incident.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PoliceResponder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rapid_Respone_Code.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Responder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ResponseTime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tester.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/ArrivalRecord.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Caller.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/DispatchCenter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/EMSResponder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/FireResponder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Identifiable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Incident$SeverityLevel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Incident.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/PoliceResponder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Rapid_Respone_Code.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Responder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/ResponseTime.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Tester.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/src.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ArrivalRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/ArrivalRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DispatchDenter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EMSResponder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FireResponder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Identifiable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Identifiable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Incident.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PoliceResponder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Responder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ResponseTime.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/src.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/src/src.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/src/Caller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/src/Identifiable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/src/Incident.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArrivalRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/ArrivalRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Caller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DispatchCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/DispatchCenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EMSResponder.java" beforeDir="false" afterPath="$PROJECT_DIR$/EMSResponder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FireResponder.java" beforeDir="false" afterPath="$PROJECT_DIR$/FireResponder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Identifiable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Identifiable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Incident.java" beforeDir="false" afterPath="$PROJECT_DIR$/Incident.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PoliceResponder.java" beforeDir="false" afterPath="$PROJECT_DIR$/PoliceResponder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Responder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Responder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/ArrivalRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/ArrivalRecord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Caller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Caller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/EMSResponder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/EMSResponder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/FireResponder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/FireResponder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Incident.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Incident.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/PoliceResponder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/PoliceResponder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Responder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Responder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Tester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rapid_Respone_Code/Tester.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,9 +40,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="39dWjOlEUEcoMROFOMB9M4UIVgX" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -83,8 +53,9 @@
     "Application.Tester.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/joshuapalma/Desktop/COSC_2424_ADV_Data_Structures/Advanced-Data-Stuctures-project/Rapid_Respone_Code",
     "settings.editor.selected.configurable": "preferences.pluginManager"

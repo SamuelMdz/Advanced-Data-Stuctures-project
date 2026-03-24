@@ -3,6 +3,14 @@ public class PoliceResponder extends Responder implements ResponseTime {
     private String currentIncidentLocation; //Tracks where responder is heading
     private int distance;  //Some arbitrary distance value to be defined later, not sure how to implement yet
 
+    //No-arg Constructor
+    public PoliceResponder(){
+        super();
+        this.rank = "";
+        this.currentIncidentLocation = "";
+        this.distance = 0;
+    }
+
     public PoliceResponder(String policeID, String responderType, String location, boolean availabilityStatus, String rank, int distance) {
         super(policeID, "Police Responder", location, availabilityStatus);
         this.rank = rank;
