@@ -33,7 +33,7 @@ public class Caller
         this.callerLocation = newLocation;
     }
 
-    public int getNumOfCallers(){
+    public static int getNumOfCallers(){
         return numOfCallers;
     }
 
@@ -44,6 +44,6 @@ public class Caller
 
     @Override
     public String toString(){
-        return "Caller Name: " + callerID + "; Name: " + "; Phone Number: " + phoneNumber + "; Last Reported Location: " + callerLocation;
+        return "Caller ID: " + callerID + "; Name: " + callerName + "; Phone Number: " + phoneNumber + "; Last Reported Location: " + callerLocation;
     }
 }
