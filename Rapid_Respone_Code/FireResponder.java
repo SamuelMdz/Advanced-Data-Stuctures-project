@@ -45,7 +45,7 @@ public class FireResponder extends Responder implements ResponseTime {
                 ", specialization='" + specialization + '\'' +
                 ", base location='" + getLocation() + '\'' +
                 ", current incident location='" + currentIncidentLocation + '\'' +
-                ", available=" + getAvailabilityStatus() +
+                ", available=" + isAvailable() +
                 '}';
     }
 }

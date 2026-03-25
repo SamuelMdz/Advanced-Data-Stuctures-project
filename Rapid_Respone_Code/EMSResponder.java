@@ -50,7 +50,7 @@ public class EMSResponder extends Responder implements ResponseTime{
                 ", rank='" + certificationLevel + '\'' +
                 ", base location='" + getLocation() + '\'' +
                 ", current incident location='" + currentIncidentLocation + '\'' +
-                ", available=" + this.getAvailabilityStatus() +
+                ", available=" + this.isAvailable() +
                 '}';
     }
 }

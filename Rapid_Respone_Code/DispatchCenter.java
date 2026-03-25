@@ -43,7 +43,7 @@ public class DispatchCenter {
     public ArrayList<Responder> assignResponders(Incident incident) {
         ArrayList<Responder> assigned = new ArrayList<>();
         for (Responder r : responders) {
-            if (r.getAvailabilityStatus()) {
+            if (r.isAvailable()) {
                 // Update responder to be en route
                 if (r instanceof FireResponder) ((FireResponder) r).respondToCall(incident.getLocation());
                 if (r instanceof PoliceResponder) ((PoliceResponder) r).respondToCall(incident.getLocation());

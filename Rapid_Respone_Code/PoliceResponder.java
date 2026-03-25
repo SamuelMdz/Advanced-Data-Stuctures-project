@@ -47,7 +47,7 @@ public class PoliceResponder extends Responder implements ResponseTime {
                 ", rank='" + rank + '\'' +
                 ", base location='" + getLocation() + '\'' +
                 ", current incident location='" + currentIncidentLocation + '\'' +
-                ", available=" + getAvailabilityStatus() +
+                ", available=" + isAvailable() +
                 '}';
     }
 }
