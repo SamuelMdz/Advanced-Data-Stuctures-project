@@ -1,4 +1,4 @@
-public class FireResponder extends Responder implements ResponseTime {
+public class FireResponder extends Responder {
 
     private String currentIncidentLocation; //Tracks where responder is headed
     private String specialization;
@@ -16,16 +16,19 @@ public class FireResponder extends Responder implements ResponseTime {
     public String getSpecialization() {return specialization;}
     public void setSpecialization(String specialization) {this.specialization = specialization;}
 
+    //Getter for currentIncidentLocation
     public String getCurrentIncidentLocation() {return currentIncidentLocation;}
+
+    //Helper function for respondToCall() function
+    public void respondToFire(Incident incident) {
+        respondToCall(incident.getLocation());
+    }
 
     @Override
     public void respondToCall(String callerLocation) {
         this.currentIncidentLocation = callerLocation; // track where heading
         System.out.println("Fire Responder responding to call incident at: " + callerLocation);
         setAvailabilityStatus(false);
-    }
-    public void respondToFire(Incident incident) {
-        respondToCall(incident.getLocation());
     }
 
     @Override
@@ -41,11 +44,11 @@ public class FireResponder extends Responder implements ResponseTime {
     @Override
     public String toString(){
         return "Fire Responder{" +
-                "ID=" + getResponderId() +
-                ", specialization='" + specialization + '\'' +
-                ", base location='" + getLocation() + '\'' +
-                ", current incident location='" + currentIncidentLocation + '\'' +
-                ", available=" + isAvailable() +
+                "ID:" + getResponderId() +
+                ", Specialization:'" + specialization + '\'' +
+                ", Base Location:'" + getLocation() + '\'' +
+                ", Current Incident Location:'" + currentIncidentLocation + '\'' +
+                ", Availability:" + isAvailable() +
                 '}';
     }
 }

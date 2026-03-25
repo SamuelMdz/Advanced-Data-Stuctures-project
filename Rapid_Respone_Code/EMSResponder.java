@@ -1,4 +1,4 @@
-public class EMSResponder extends Responder implements ResponseTime{
+public class EMSResponder extends Responder{
     private String certificationLevel;
     private String currentIncidentLocation;
     private int distance;
@@ -8,6 +8,7 @@ public class EMSResponder extends Responder implements ResponseTime{
             this.certificationLevel = certificationLevel;
             this.distance = distance;
             this.currentIncidentLocation = null;    //Initially not responding to anything
+
         }
 
     //Getter/Setter
@@ -21,6 +22,11 @@ public class EMSResponder extends Responder implements ResponseTime{
         return this.currentIncidentLocation;
     }
 
+    //Helper function for respondToCall()
+    public void respondToMedicalIncident(Incident incident) {
+        respondToCall(incident.getLocation());
+    }
+
     //Respond to call
     @Override
     public void respondToCall(String callerLocation) {
@@ -29,10 +35,7 @@ public class EMSResponder extends Responder implements ResponseTime{
         setAvailabilityStatus(false);   //Sets availability to false
     }
 
-    public void respondToMedicalIncident(Incident incident) {
-        respondToCall(incident.getLocation());
-    }
-
+    //Implementation of calculateResponseTime() method from ResponseTime interface
     @Override
     public double calculateResponseTime() {
         return distance; // distance already in minutes
@@ -46,11 +49,11 @@ public class EMSResponder extends Responder implements ResponseTime{
     @Override
     public String toString(){
         return "EMS Responder{" +
-                "ID=" + getResponderId() +
-                ", rank='" + certificationLevel + '\'' +
-                ", base location='" + getLocation() + '\'' +
-                ", current incident location='" + currentIncidentLocation + '\'' +
-                ", available=" + this.isAvailable() +
+                "ID:" + getResponderId() +
+                ", Certification Level:'" + certificationLevel + '\'' +
+                ", Base Location:'" + getLocation() + '\'' +
+                ", Current Incident Location:'" + currentIncidentLocation + '\'' +
+                ", Availability:" + this.isAvailable() +
                 '}';
     }
 }
