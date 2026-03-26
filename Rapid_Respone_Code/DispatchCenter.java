@@ -5,13 +5,15 @@ import java.util.List;
 import java.util.Queue;
 
 public class DispatchCenter {
-
+    //Data Fields
     private List<Responder> responders;
+    private ArrayList<Incident> allIncidents;
     private Queue<Incident> incidentQueue;
 
     public DispatchCenter() {
         this.responders = new ArrayList<>();
         this.incidentQueue = new LinkedList<>();
+        this.allIncidents = new ArrayList<>();
     }
 
     // Add a responder to the system
@@ -22,6 +24,12 @@ public class DispatchCenter {
     // Add an incident to the system
     public void addIncident(Incident incident) {
         incidentQueue.offer(incident);  //Use offer instead of "add" for queue implementation
+        allIncidents.add(incident); //Permanent record
+    }
+
+    //Getter for array of all incidents
+    public ArrayList<Incident> getIncidents() {
+        return allIncidents;
     }
 
     //Returns and removes next incident to show that it was resolved
