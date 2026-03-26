@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Iterator;
 
 public class DispatchCenter {
     //Data Fields
@@ -45,6 +46,20 @@ public class DispatchCenter {
     //Getter for incidentQueue
     public Queue<Incident> getIncidentQueue(){
         return incidentQueue;
+    }
+
+    public ArrayList<Incident> getCriticalIncidents(){
+        Iterator<Incident> iterator = allIncidents.iterator();
+        ArrayList<Incident> criticalIncidents = new ArrayList<>();
+
+        while(iterator.hasNext()){
+            Incident incident = iterator.next();
+
+            if(incident.getSeverityLevel() == Incident.SeverityLevel.CRITICAL){
+                criticalIncidents.add(incident);
+            }
+        }
+        return criticalIncidents;
     }
 
     //Quick sort algorithm for arrival
@@ -200,6 +215,44 @@ public class DispatchCenter {
 
             // Recursively heapify affected subtree
             heapify(list, heapSize, largest);
+        }
+    }
+
+    // Recursive binary search for Incident by ID
+    public static int binarySearchIncident(ArrayList<Incident> list, String targetId, int low, int high) {
+        if (low > high) {
+            return -1; // not found
+        }
+
+        int mid = (low + high) / 2;
+
+        int comparison = list.get(mid).getId().compareTo(targetId);
+
+        if (comparison == 0) {
+            return mid;
+        } else if (comparison > 0) {
+            return binarySearchIncident(list, targetId, low, mid - 1);
+        } else {
+            return binarySearchIncident(list, targetId, mid + 1, high);
+        }
+    }
+
+    // Recursive binary search for ArrivalRecord by Incident ID
+    public static int binarySearchArrival(ArrayList<ArrivalRecord> list, String targetId, int low, int high) {
+        if (low > high) {
+            return -1;
+        }
+
+        int mid = (low + high) / 2;
+
+        int comparison = list.get(mid).getIncidentId().compareTo(targetId);
+
+        if (comparison == 0) {
+            return mid;
+        } else if (comparison > 0) {
+            return binarySearchArrival(list, targetId, low, mid - 1);
+        } else {
+            return binarySearchArrival(list, targetId, mid + 1, high);
         }
     }
 
