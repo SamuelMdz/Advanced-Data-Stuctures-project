@@ -153,6 +153,56 @@ public class DispatchCenter {
         }
     }
 
+    //Heap sort for allIncidents ArrayList
+    public static void heapSortIncidents(ArrayList<Incident> list) {
+        int n = list.size();
+
+        // Build max heap
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(list, n, i);
+        }
+
+        // Extract elements from heap
+        for (int i = n - 1; i > 0; i--) {
+            // Swap root with last element
+            Incident temp = list.get(0);
+            list.set(0, list.get(i));
+            list.set(i, temp);
+
+            // Heapify reduced heap
+            heapify(list, i, 0);
+        }
+    }
+
+    //Helper method for heap Sort
+    private static void heapify(ArrayList<Incident> list, int heapSize, int root) {
+        int largest = root;
+        int left = 2 * root + 1;
+        int right = 2 * root + 2;
+
+        // Compare left child
+        if (left < heapSize &&
+                list.get(left).compareTo(list.get(largest)) > 0) {
+            largest = left;
+        }
+
+        // Compare right child
+        if (right < heapSize &&
+                list.get(right).compareTo(list.get(largest)) > 0) {
+            largest = right;
+        }
+
+        // Swap if needed
+        if (largest != root) {
+            Incident temp = list.get(root);
+            list.set(root, list.get(largest));
+            list.set(largest, temp);
+
+            // Recursively heapify affected subtree
+            heapify(list, heapSize, largest);
+        }
+    }
+
     // Assign available responders for a given incident
     public ArrayList<Responder> assignResponders(Incident incident) {
         ArrayList<Responder> assigned = new ArrayList<>();
