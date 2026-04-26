@@ -10,11 +10,17 @@ public class DispatchCenter {
     private List<Responder> responders;
     private ArrayList<Incident> allIncidents;
     private Queue<Incident> incidentQueue;
+    private IncidentAVLTree incidentAVLTree;
+    private CallerRegistry callerRegistry;
+    private ResponseNetworkGraph responseNetworkGraph;
 
     public DispatchCenter() {
         this.responders = new ArrayList<>();
         this.incidentQueue = new LinkedList<>();
         this.allIncidents = new ArrayList<>();
+        this.incidentAVLTree = new IncidentAVLTree();
+        this.callerRegistry = new CallerRegistry();
+        this.responseNetworkGraph = new ResponseNetworkGraph();
     }
 
     // Add a responder to the system
@@ -26,6 +32,7 @@ public class DispatchCenter {
     public void addIncident(Incident incident) {
         incidentQueue.offer(incident);  //Use offer instead of "add" for queue implementation
         allIncidents.add(incident); //Permanent record
+        incidentAVLTree.insert(incident);   //insert incident to AVL tree used for fast methods and indexing
     }
 
     //Getter for array of all incidents
@@ -60,6 +67,44 @@ public class DispatchCenter {
             }
         }
         return criticalIncidents;
+    }
+
+    // ResponseNetworkGraph Getter
+    public ResponseNetworkGraph getResponseGraph() {
+        return responseNetworkGraph;
+    }
+
+    // AVL Tree methods
+    public Incident searchIncidentAVL(String id) {
+        return incidentAVLTree.search(id);
+    }
+
+    public boolean deleteIncidentAVL(String id) {
+        return incidentAVLTree.delete(id);
+    }
+
+    public ArrayList<Incident> getIncidentsInAVLOrder() {
+        return incidentAVLTree.inorderTraversal();
+    }
+
+    //Wrapper methods for CallerRegistry
+    public void addCaller(Caller caller) {
+        callerRegistry.addCaller(caller);
+    }
+
+    public Caller getCallerById(String id) {
+        return callerRegistry.getCallerById(id);
+    }
+    public boolean removeCaller(String id) {
+        return callerRegistry.removeCaller(id);
+    }
+
+    public boolean updateCallerPhoneNumber(String id, String phone) {
+        return callerRegistry.updateCallerPhoneNumber(id, phone);
+    }
+
+    public boolean updateCallerLocation(String id, String location) {
+        return callerRegistry.updateCallerLocation(id, location);
     }
 
     //Quick sort algorithm for arrival
